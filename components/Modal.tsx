@@ -6,29 +6,19 @@ import { IoMdClose } from "react-icons/io";
 interface ModalProps {
   isOpen?: boolean;
   onClose: () => void;
-  onSubmit: () => void;
   title?: string;
   subtitle?: string;
-  body?: React.ReactElement;
-  footer?: React.ReactElement;
-  actionLabel?: string;
   disabled?: boolean;
   secondaryAction?: () => void;
-  secondaryLabel?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
-  onSubmit,
   title,
   subtitle,
-  body,
-  footer,
-  actionLabel,
   disabled,
   secondaryAction,
-  secondaryLabel,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
   const [name, setName] = useState("");
@@ -90,13 +80,13 @@ const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  const handleSecondaryAction = useCallback(() => {
-    if (disabled || !secondaryAction) {
-      return;
-    }
+  //   const handleSecondaryAction = useCallback(() => {
+  //     if (disabled || !secondaryAction) {
+  //       return;
+  //     }
 
-    secondaryAction();
-  }, [disabled, secondaryAction]);
+  //     secondaryAction();
+  //   }, [disabled, secondaryAction]);
 
   if (!isOpen) return null;
 
