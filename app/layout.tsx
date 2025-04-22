@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,7 +56,7 @@ src="https://www.facebook.com/tr?id=888936398833281&ev=PageView&noscript=1"
 /></noscript> */}
 
         {/* Facebook Pixel Script */}
-        <script id="fb-pixel" strategy="afterInteractive">
+        <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -68,7 +69,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '888936398833281');
 fbq('track', 'PageView');
           `}
-        </script>
+        </Script>
 
         {/* Optional noscript fallback */}
         <noscript>
