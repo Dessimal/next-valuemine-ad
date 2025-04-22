@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Valuemine Power Solutions",
   description: "You Can Now 'Pay Small Small' for Solar",
   openGraph: {
-    title: "Pay Small Small for Solar",
+    title: "Pay 'Small Small' for Correct Solar",
     description: "You Can Now 'Pay Small Small' for Solar ",
     siteName: "Valuemine",
     images: [
