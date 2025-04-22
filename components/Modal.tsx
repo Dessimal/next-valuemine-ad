@@ -18,7 +18,6 @@ const Modal: React.FC<ModalProps> = ({
   title,
   subtitle,
   disabled,
-  secondaryAction,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
   const [name, setName] = useState("");
