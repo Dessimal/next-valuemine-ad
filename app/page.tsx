@@ -20,7 +20,6 @@ const Home = () => {
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        onSubmit={() => setIsOpen(false)}
         title="You're Just One Step Away!"
         subtitle="Enter your name and phone number so we can easily reach you"
       />
