@@ -7,6 +7,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
+import { CircleCheckBig } from "lucide-react";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -135,18 +136,33 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          <div className="flex flex-col gap-2 mb-10">
-            <p>All our packages:</p>
-            <ul className="flex md:flex-row md:justify-between flex-col gap-2">
-              <li>Are Very Affordable</li>
-              <li>Come with a Warranty</li>
-              <li>Include iron clad Protection kit</li>
+          <div className="w-full flex flex-col items-center gap-6 mb-10">
+            <p className="font-bold text-lg">All our packages:</p>
+            <ul className="flex md:flex-row md:justify-between flex-col items-center gap-6 font-bold">
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Are Very Affordable
+              </li>
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Come with a Warranty
+              </li>
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Include iron clad Protection kit
+              </li>
             </ul>
           </div>
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => setIsOpen(true)}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold">
+              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
               Get Free List of Our Solar Packages
             </button>
           </div>
@@ -181,7 +197,7 @@ const Home = () => {
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => setIsOpen(true)}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold">
+              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
               Get Free List of Our Solar Packages
             </button>
           </div>
