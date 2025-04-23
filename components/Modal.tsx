@@ -14,6 +14,7 @@ interface ModalProps {
   onClose: () => void;
   title?: string;
   subtitle?: string;
+  body?: React.ReactElement;
   disabled?: boolean;
   secondaryAction?: () => void;
 }
@@ -23,11 +24,10 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   subtitle,
+  body,
   disabled,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     setShowModal(isOpen);
@@ -48,50 +48,6 @@ const Modal: React.FC<ModalProps> = ({
 
   //     onSubmit();
   //   }, [disabled, onSubmit]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("phone", phone);
-
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby7Aq488swCHG3CcispI_wxnOJE8OxXlGrSNv9NZRc_i7-5J8ocawgQji02an-Qa_B2/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const result = await response.json();
-
-      if (result.status !== "success") {
-        throw new Error("Failed to save contact");
-      }
-
-      // Optional: Track lead
-      if (typeof window !== "undefined" && window.fbq) {
-        window.fbq("track", "Lead");
-      }
-
-      // Redirect to WhatsApp
-      setTimeout(() => {
-        window.location.href = "https://wa.link/eqizd4";
-      }, 300); // or even 100ms might help
-    } catch (err) {
-      console.error("Submission failed:", err);
-    }
-  };
-
-  //   const handleSecondaryAction = useCallback(() => {
-  //     if (disabled || !secondaryAction) {
-  //       return;
-  //     }
-
-  //     secondaryAction();
-  //   }, [disabled, secondaryAction]);
 
   if (!isOpen) return null;
 
@@ -119,31 +75,7 @@ const Modal: React.FC<ModalProps> = ({
             <div className="relative p-6 flex-auto">
               <div className="w-full text-lg mb-2">{subtitle}</div>
               <div className="flex flex-col items-center w-full gap-4">
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col gap-2 w-full">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="border w-full mb-3 p-2 rounded"
-                    required
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Your Phone Number"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="border w-full mb-3 p-2 rounded"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
-                    Submit
-                  </button>
-                </form>
+                {body}
               </div>
             </div>
             {/* FOOTER */}
