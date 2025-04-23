@@ -24,10 +24,6 @@ const fadeInAnimationVariantY = {
   }),
 };
 
-const iconProducer = (Icon: React.ReactNode, iconSize: number) => (
-  <Icon size={iconSize} />
-);
-
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -182,7 +178,7 @@ const Home = () => {
             </p>
             <p>Our services include but are not limited to:</p>
             <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center">
-              {services.map(({ text, icon, iconSize }, index) => (
+              {services.map(({ text, icon: Icon, iconSize }, index) => (
                 <motion.div
                   key={index}
                   variants={fadeInAnimationVariantY}
@@ -190,7 +186,7 @@ const Home = () => {
                   whileInView="animate"
                   viewport={{ once: true }}
                   custom={index}>
-                  <Card content={text} icon={iconProducer(icon, iconSize)} />
+                  <Card content={text} icon={<Icon size={iconSize} />} />
                 </motion.div>
               ))}
             </div>
