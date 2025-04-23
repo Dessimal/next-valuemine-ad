@@ -191,7 +191,7 @@ const Home = () => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         title="You're Almost There!"
-        subtitle="Kindly enter your name and phone number so we can easily reach you"
+        subtitle="Kindly enter your contact details so we can easily get in touch"
         body={bodyContent}
       />
 
