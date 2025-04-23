@@ -6,7 +6,7 @@ type FooterProps = {
 
 const Footer = ({ children }: FooterProps) => {
   return (
-    <footer className="w-full py-20 px-10 flex flex-row items-center justify-center">
+    <footer className="bg-linear-to-bl from-gray-950 to-stone-950 w-full py-20 px-10 flex flex-row items-center justify-center text-white">
       {children}
     </footer>
   );

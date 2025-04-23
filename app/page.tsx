@@ -105,7 +105,8 @@ const Home = () => {
           <div className="w-full pb-10">
             <p className=" text-center italic">At Last! You can now..</p>
             <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-2xl text-center">
-              Pay &apos;Small Small&apos;{" "}
+              Pay{" "}
+              <span className="text-orange-500">&apos;Small Small&apos; </span>
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
               Professional Solar/Inverter Installation
