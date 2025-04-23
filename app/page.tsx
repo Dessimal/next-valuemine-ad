@@ -104,7 +104,7 @@ const Home = () => {
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-20">
             <p className=" text-center italic">At Last! You can now..</p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-7xl xs:text-5xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl xs:text-5xl text-5xl text-center">
               Pay &apos;Small Small&apos;{" "}
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
