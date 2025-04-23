@@ -100,11 +100,11 @@ const Home = () => {
 
   return (
     <>
-      <main className="dark:text-white dark:bg-slate-950 w-full h-auto flex flex-col items-center justify-center ">
+      <main className="dark:text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
-          <div className="w-full pb-20">
+          <div className="w-full pb-10">
             <p className=" text-center italic">At Last! You can now..</p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-4xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-2xl text-center">
               Pay &apos;Small Small&apos;{" "}
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
@@ -119,7 +119,7 @@ const Home = () => {
           <p className="lg:text-lg">
             Here&apos;s what our customers are saying:
           </p>
-          <div className="w-full flex flex-col md:flex-row items-center md:justify-between justify-center py-20 gap-8 md:gap-4">
+          <div className="w-full flex flex-col md:flex-row items-center md:justify-between justify-center py-10 gap-8 md:gap-4">
             {videoLinks.map((link, index) => (
               <motion.div
                 className="w-full"
@@ -167,9 +167,9 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="w-full bg-gray-950 text-white py-20 px-5 xl:px-30 lg:px-20">
+        <section className="w-full text-white py-20 px-5 xl:px-30 lg:px-20">
           <div className="flex flex-col gap-4 py-10">
-            <h2 className="text-3xl text-center font-bold capitalize">
+            <h2 className="text-3xl text-center font-bold capitalize bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent inline-block bg-clip-text">
               who we are
             </h2>
             <p>
