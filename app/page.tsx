@@ -104,7 +104,7 @@ const Home = () => {
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-20">
             <p className=" text-center italic">At Last! You can now..</p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-4xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl xs:text-5xl text-center">
               Pay &apos;Small Small&apos;{" "}
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
@@ -112,8 +112,9 @@ const Home = () => {
             </h1>
           </div>
           <p className="">
-            It&apos; true! You can now pay for a professional solar inverter
-            installation in easy installments of up to 12 months!.
+            <span className="italic">It&apos;s true!</span> You can now pay for
+            a professional solar inverter installation in easy installments of
+            up to 12 months!.
           </p>
           <p className="lg:text-lg">
             Here&apos;s what our customers are saying:
@@ -160,13 +161,13 @@ const Home = () => {
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => setIsOpen(true)}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
+              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               Get Free List of Our Solar Packages
             </button>
           </div>
         </section>
 
-        <section className="w-full bg-slate-800 text-white py-20 px-5 xl:px-30 lg:px-20">
+        <section className="w-full bg-gray-950 text-white py-20 px-5 xl:px-30 lg:px-20">
           <div className="flex flex-col gap-4 py-10">
             <h2 className="text-3xl text-center font-bold capitalize">
               who we are
@@ -177,7 +178,7 @@ const Home = () => {
               installations.
             </p>
             <p>Our services include but are not limited to:</p>
-            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center">
+            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center my-20">
               {services.map(({ text, icon: Icon, iconSize }, index) => (
                 <motion.div
                   key={index}
@@ -195,7 +196,7 @@ const Home = () => {
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => setIsOpen(true)}
-              className="my-20 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
+              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               Get Free List of Our Solar Packages
             </button>
           </div>

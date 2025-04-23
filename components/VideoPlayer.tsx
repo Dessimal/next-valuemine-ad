@@ -1,8 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useEffect, useState, useRef } from "react";
-import { Play } from "lucide-react";
+import { useEffect, useState, useRef, useCallback } from "react";
+import { VolumeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface VideoPlayerProps {
@@ -26,7 +26,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (videoRef.current && !globalVideoRefs.includes(videoRef.current)) {
       globalVideoRefs.push(videoRef.current);
     }
     return () => {
@@ -38,19 +38,35 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     };
   }, []);
 
-  const handlePlay = () => {
+  const handlePlay = useCallback(() => {
     globalVideoRefs.forEach((ref) => {
       if (ref !== videoRef.current) {
         ref.pause();
       }
     });
-    videoRef.current?.play();
-    setPlaying(true);
-  };
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+      setPlaying(true);
+    }
+  }, []);
 
   const handleEnded = () => {
     setPlaying(false);
   };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.addEventListener("ended", handleEnded);
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
+  console.log(playing);
 
   return (
     <div
@@ -62,26 +78,27 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
       <AnimatePresence>
         {!playing && (
           <motion.div
-            className="absolute inset-0 z-10 bg-black/30 flex items-center justify-center"
+            key="overlay"
+            className="absolute inset-0 z-10 bg-black/985 flex items-center justify-center border-4 border-slate-500 p-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}>
             <span className="relative flex size-20">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75 pointer-events-none"></span>
 
               <button
                 title="play-button"
                 aria-label="play-button"
                 onClick={handlePlay}
-                className="inline-flex items-center justify-center size-20 rounded-full bg-sky-500  text-white transition">
-                <Play size={32} />
+                className="inline-flex items-center justify-center size-20 rounded-full bg-sky-500 text-white transition">
+                <VolumeOff size={32} />
               </button>
             </span>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {!playing && poster && (
+      {/* {!playing && poster && (
         <motion.img
           src={poster}
           alt="Video poster"
@@ -93,7 +110,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         />
-      )}
+      )} */}
 
       {overlayText && !playing && <motion.div>{overlayText}</motion.div>}
 
@@ -101,8 +118,12 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         ref={videoRef}
         src={src}
         poster={poster}
-        className={`aspect-video ${playing ? "block" : "hidden"}`}
+        className={cn("aspect-video object-cover rounded-xl overflow-hidden")}
         controls
+        muted
+        autoPlay
+        loop
+        playsInline
         preload="metadata"
         onEnded={handleEnded}
       />
