@@ -8,9 +8,7 @@ import {
 } from "lucide-react";
 
 export const videoLinks = [
-  "https://res.cloudinary.com/druwmu39g/video/upload/v1745376938/avwwz26bqagorah2d5be.mp4",
-  "https://res.cloudinary.com/druwmu39g/video/upload/v1745376938/avwwz26bqagorah2d5be.mp4",
-  "https://res.cloudinary.com/druwmu39g/video/upload/v1745376938/avwwz26bqagorah2d5be.mp4",
+  "https://res.cloudinary.com/druwmu39g/video/upload/v1745409377/avwwz26bqagorah2d5be.mp4",
 ];
 
 export const services = [

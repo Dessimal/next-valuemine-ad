@@ -24,7 +24,9 @@ const fadeInAnimationVariantY = {
   }),
 };
 
-const iconProducer = (Icon, iconSize) => <Icon size={iconSize} />;
+const iconProducer = (Icon: React.ReactNode, iconSize: number) => (
+  <Icon size={iconSize} />
+);
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +97,7 @@ const Home = () => {
       <button
         type="submit"
         className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
-        Submit
+        <span> Submit</span>
       </button>
     </form>
   );
@@ -106,7 +108,7 @@ const Home = () => {
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-20">
             <p className=" text-center italic">At Last! You can now..</p>
-            <h1 className="font-extrabold lg:text-7xl xl:text-7xl text-4xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-4xl text-center">
               Pay &apos;Small Small&apos;{" "}
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
@@ -179,7 +181,7 @@ const Home = () => {
               installations.
             </p>
             <p>Our services include but are not limited to:</p>
-            <div className="w-full flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center">
               {services.map(({ text, icon, iconSize }, index) => (
                 <motion.div
                   key={index}
@@ -197,7 +199,7 @@ const Home = () => {
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => setIsOpen(true)}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
+              className="my-20 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg border-slate-600 border-2 font-bold bg-sky-600">
               Get Free List of Our Solar Packages
             </button>
           </div>
