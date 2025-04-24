@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa6";
 
 import Modal from "@/components/Modal";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -116,6 +117,7 @@ const Home = () => {
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
+          <FaWhatsapp />
           <span>Submit</span>
         </button>
       </form>
