@@ -10,7 +10,6 @@ import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import { ChevronsRight, CircleCheckBig, XCircle } from "lucide-react";
 import ArrowAnimation from "@/components/ArrowAnimation";
-import FingerAnimation from "@/components/FingerAnimation";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -264,8 +263,8 @@ const Home = () => {
               who we are
             </h2>
             <p>
-              Valuemine Power Solutions is the fastest growing brand in the
-              world of solar powered technologies and general electrical
+              Valuemine Power Solutions is one of the fastest growing brands in
+              the world of solar powered technologies and general electrical
               installations.
             </p>
             <p>Our services include but are not limited to:</p>
