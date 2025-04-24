@@ -163,7 +163,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="border-0 dark:text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
+      <main className="border-0 text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-10">
             <p className=" text-center italic">At Last! You can now..</p>
@@ -238,22 +238,20 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col items-center justify-center ">
-            <div className="bg-linear-to-r from-purple-500 to-pink-500 p-[4px] w-3xl h-auto rounded-lg">
-              <button
-                onClick={() => {
-                  setModalState("form");
-                  setIsOpen(true);
-                }}
-                className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-                <span className="text-2xl font-bold">
-                  Get Free List of Our Solar Packages
-                  <ChevronsRight
-                    size={32}
-                    className="absolute top-[35px] left-32 animate-caret-blink"
-                  />
-                </span>
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                setModalState("form");
+                setIsOpen(true);
+              }}
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              <span className="text-2xl font-bold">
+                Get Free List of Our Solar Packages
+                <ChevronsRight
+                  size={32}
+                  className="absolute top-[35px] left-32"
+                />
+              </span>
+            </button>
           </div>
         </section>
 
@@ -295,22 +293,20 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col items-center justify-center ">
-            <div className="bg-linear-to-r from-purple-500 to-pink-500 p-[4px] w-3xl h-auto rounded-lg">
-              <button
-                onClick={() => {
-                  setModalState("form");
-                  setIsOpen(true);
-                }}
-                className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-                <span className="text-2xl font-bold">
-                  Get Free List of Our Solar Packages
-                  <ChevronsRight
-                    size={32}
-                    className="absolute top-[35px] left-32 animate-caret-blink"
-                  />
-                </span>
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                setModalState("form");
+                setIsOpen(true);
+              }}
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              <span className="text-2xl font-bold">
+                Get Free List of Our Solar Packages
+                <ChevronsRight
+                  size={32}
+                  className="absolute top-[35px] left-32"
+                />
+              </span>
+            </button>
           </div>
         </section>
       </main>
