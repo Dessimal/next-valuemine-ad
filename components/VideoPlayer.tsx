@@ -66,8 +66,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     };
   }, []);
 
-  console.log(playing);
-
   return (
     <div
       className={cn(

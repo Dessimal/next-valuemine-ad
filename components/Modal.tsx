@@ -17,6 +17,8 @@ interface ModalProps {
   body?: React.ReactElement;
   disabled?: boolean;
   secondaryAction?: () => void;
+  isSuccess?: boolean; // New prop
+  countdown?: number; // New prop
 }
 
 const Modal: React.FC<ModalProps> = ({

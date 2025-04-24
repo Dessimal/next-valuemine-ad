@@ -7,7 +7,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
-import { CircleCheckBig } from "lucide-react";
+import { CircleCheckBig, LucideCircleCheckBig } from "lucide-react";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -24,12 +24,13 @@ const fadeInAnimationVariantY = {
   }),
 };
 
-  
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [modalState, setModalState] = useState<"form" | "success">("form");
+  const [countdown, setCountdown] = useState(3);
 
   //   const handleSubmit = useCallback(() => {
   //     if (disabled) return;
@@ -37,74 +38,100 @@ const Home = () => {
   //     onSubmit();
   //   }, [disabled, onSubmit]);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const data = {
-    name,
-    phone,
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("phone", phone);
+
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby2eVwPtRxDwwcIHJqbfgQJ-7MOl70YcFpfC-hLsZhUtiHDbCYp6oY5HJy5W6k-8SCJ/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      console.log("Response:", response); // Log the entire response object
+
+      // if (!response.ok) {
+      //   const text = await response.getContentText(); // Get the response text
+      //   console.error("Fetch error:", response.status, text);
+      //   return;
+      // }
+
+      // const result = await response.json();
+      // console.log("Result:", result);
+
+      // if (!result.success) {
+      //   console.error("App Script error:", result.error);
+      //   return;
+      // }
+
+      if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", "Lead");
+      }
+
+      // Change modal body to success state
+      setModalState("success");
+
+      // Start countdown
+      let seconds = 3;
+      setCountdown(seconds);
+      const interval = setInterval(() => {
+        seconds -= 1;
+        setCountdown(seconds);
+
+        if (seconds <= 0) {
+          clearInterval(interval);
+          window.location.href = "https://wa.link/nroeds";
+        }
+      }, 1000);
+    } catch (err) {
+      console.error("Submission failed:", err);
+    }
   };
 
-  try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbxvliGJuJuHPJra2YmwIB3GVyfPul6O_Vd0_JGJ4I7-woZM18NQNlM27LejodxbzHkj/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+  const bodyContent =
+    modalState === "form" ? (
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
+        <input
+          type="text"
+          placeholder="Your Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="border w-full mb-3 p-2 rounded"
+          required
+        />
+        <input
+          type="tel"
+          placeholder="Your Phone Number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="border w-full mb-3 p-2 rounded"
+          required
+        />
+        <button
+          type="submit"
+          className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
+          <span>Submit</span>
+        </button>
+      </form>
+    ) : (
+      <div className="flex flex-col items-center justify-center gap-4 py-8">
+        <LucideCircleCheckBig className="text-green-600" size={64} />
+        <p className="text-center text-xl font-bold">
+          Thank you for sharing your contact!
+        </p>
+        <p className="text-center text-gray-700 text-lg">
+          You will be redirected to WhatsApp in{" "}
+          <span className="font-bold">{countdown}</span> second
+          {countdown !== 1 ? "s" : ""}.
+        </p>
+      </div>
     );
-
-    const result = await response.json();
-
-    if (!result.success) {
-      console.error("Submission failed on server side");
-      return;
-    }
-
-    if (typeof window !== "undefined" && window.fbq) {
-      window.fbq("track", "Lead");
-    }
-
-    setTimeout(() => {
-      window.location.href = "https://wa.link/eqizd4";
-    }, 300);
-  } catch (err) {
-    console.error("Submission failed:", err);
-  }
-};
-
-
-  const bodyContent = (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
-      <input
-        type="text"
-        placeholder="Your Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="border w-full mb-3 p-2 rounded"
-        required
-      />
-      <input
-        type="tel"
-        placeholder="Your Phone Number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="border w-full mb-3 p-2 rounded"
-        required
-      />
-      <button
-        type="submit"
-        className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
-        <span> Submit</span>
-      </button>
-    </form>
-  );
-
-    
-
 
   return (
     <>
@@ -119,7 +146,9 @@ const handleSubmit = async (e: React.FormEvent) => {
               <br className="hidden md:inline-block" />
               Professional Solar/Inverter Installation
             </h1>
-            <p className=" text-center italic">courtesy of Valuemine Power Solutions!</p>
+            <p className=" text-center italic">
+              courtesy of Valuemine Power Solutions!
+            </p>
           </div>
           <p className="">
             <span className="italic">It&apos;s true!</span> You can now pay for
@@ -170,7 +199,10 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
           <div className="w-full flex items-center justify-center">
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={() => {
+                setModalState("form");
+                setIsOpen(true);
+              }}
               className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               Get Free List of Our Solar Packages
             </button>
@@ -205,7 +237,10 @@ const handleSubmit = async (e: React.FormEvent) => {
 
           <div className="w-full flex items-center justify-center">
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={() => {
+                setModalState("form");
+                setIsOpen(true);
+              }}
               className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               Get Free List of Our Solar Packages
             </button>
@@ -215,8 +250,12 @@ const handleSubmit = async (e: React.FormEvent) => {
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title="You're Almost There!"
-        subtitle="Kindly enter your contact details so we can easily get in touch"
+        title={modalState === "form" ? "You're Almost There!" : ""}
+        subtitle={
+          modalState === "form"
+            ? "Kindly enter your contact details so we can easily get in touch"
+            : ""
+        }
         body={bodyContent}
       />
 
