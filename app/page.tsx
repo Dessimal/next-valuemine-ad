@@ -284,6 +284,13 @@ const Home = () => {
             </div>
           </div>
 
+          <div className="text-white w-full flex items-center justify center">
+            <p className="text-center text-3xl italic">
+              Click the button below to get a free list of all our solar
+              packages with the price and all necessary details
+            </p>
+          </div>
+
           <div className="w-full">
             <ArrowAnimation />
           </div>
