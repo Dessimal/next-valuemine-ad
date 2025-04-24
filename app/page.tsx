@@ -24,6 +24,7 @@ const fadeInAnimationVariantY = {
   }),
 };
 
+  
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,41 +37,45 @@ const Home = () => {
   //     onSubmit();
   //   }, [disabled, onSubmit]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("phone", phone);
-
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby7Aq488swCHG3CcispI_wxnOJE8OxXlGrSNv9NZRc_i7-5J8ocawgQji02an-Qa_B2/exec",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const result = await response.json();
-
-      if (result.status !== "success") {
-        throw new Error("Failed to save contact");
-      }
-
-      // Optional: Track lead
-      if (typeof window !== "undefined" && window.fbq) {
-        window.fbq("track", "Lead");
-      }
-
-      // Redirect to WhatsApp
-      setTimeout(() => {
-        window.location.href = "https://wa.link/eqizd4";
-      }, 300); // or even 100ms might help
-    } catch (err) {
-      console.error("Submission failed:", err);
-    }
+  const data = {
+    name,
+    phone,
   };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxvliGJuJuHPJra2YmwIB3GVyfPul6O_Vd0_JGJ4I7-woZM18NQNlM27LejodxbzHkj/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const result = await response.json();
+
+    if (!result.success) {
+      console.error("Submission failed on server side");
+      return;
+    }
+
+    if (typeof window !== "undefined" && window.fbq) {
+      window.fbq("track", "Lead");
+    }
+
+    setTimeout(() => {
+      window.location.href = "https://wa.link/eqizd4";
+    }, 300);
+  } catch (err) {
+    console.error("Submission failed:", err);
+  }
+};
+
 
   const bodyContent = (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
@@ -98,9 +103,12 @@ const Home = () => {
     </form>
   );
 
+    
+
+
   return (
     <>
-      <main className="dark:text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
+      <main className="border-0 dark:text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-10">
             <p className=" text-center italic">At Last! You can now..</p>
@@ -111,10 +119,11 @@ const Home = () => {
               <br className="hidden md:inline-block" />
               Professional Solar/Inverter Installation
             </h1>
+            <p className=" text-center italic">courtesy of Valuemine Power Solutions!</p>
           </div>
           <p className="">
             <span className="italic">It&apos;s true!</span> You can now pay for
-            a professional solar inverter installation in easy installments of
+            a professional solar/inverter installation in easy installments of
             up to 12 months!.
           </p>
           <p className="lg:text-lg">

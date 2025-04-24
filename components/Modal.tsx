@@ -61,10 +61,11 @@ const Modal: React.FC<ModalProps> = ({
           <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg w-full bg-white shadow-lg relative flex flex-col outline-none focus:outline-none">
             <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
               <button
+                className="absolute right-2 top-8"
                 onClick={handleClose}
                 title="Close modal"
                 aria-label="Close modal">
-                <IoMdClose size={18} />
+                <IoMdClose size={22} />
               </button>
 
               <div className="font-extrabold text-2xl text-blue-800">
