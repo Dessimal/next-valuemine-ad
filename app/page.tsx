@@ -8,7 +8,12 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
-import { CircleCheckBig, LucideCircleCheckBig } from "lucide-react";
+import {
+  CircleCheckBig,
+  LucideCircleCheckBig,
+  LucideSquareCheckBig,
+  XCircle,
+} from "lucide-react";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -30,7 +35,10 @@ const Home = () => {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [modalState, setModalState] = useState<"form" | "success">("form");
+  const [modalState, setModalState] = useState<
+    "form" | "submitting" | "success" | "error"
+  >("form");
+
   const [countdown, setCountdown] = useState(3);
 
   //   const handleSubmit = useCallback(() => {
@@ -41,6 +49,9 @@ const Home = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Show loading spinner
+    setModalState("submitting");
 
     const formData = new FormData();
     formData.append("name", name);
@@ -117,13 +128,17 @@ const Home = () => {
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
-          <FaWhatsapp />
           <span>Submit</span>
         </button>
       </form>
-    ) : (
+    ) : modalState === "submitting" ? (
       <div className="flex flex-col items-center justify-center gap-4 py-8">
-        <LucideCircleCheckBig className="text-green-600" size={64} />
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-green-600 border-solid" />
+        <p className="text-center text-lg text-gray-700">Submitting...</p>
+      </div>
+    ) : modalState === "success" ? (
+      <div className="flex flex-col items-center justify-center gap-4 py-8">
+        <CircleCheckBig className="text-green-600" size={64} />
         <p className="text-center text-xl font-bold">
           Thank you for sharing your contact!
         </p>
@@ -132,6 +147,20 @@ const Home = () => {
           <span className="font-bold">{countdown}</span> second
           {countdown !== 1 ? "s" : ""}.
         </p>
+      </div>
+    ) : (
+      // Error state
+      <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
+        <XCircle className="text-red-600" size={64} />
+        <p className="text-xl font-bold text-red-700">Submission Failed</p>
+        <p className="text-gray-600">
+          Something went wrong. Please check your network and try again.
+        </p>
+        <button
+          onClick={() => setModalState("form")}
+          className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-800">
+          Try Again
+        </button>
       </div>
     );
 
