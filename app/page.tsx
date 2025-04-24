@@ -8,12 +8,8 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
-import {
-  CircleCheckBig,
-  LucideCircleCheckBig,
-  LucideSquareCheckBig,
-  XCircle,
-} from "lucide-react";
+import { CircleCheckBig, XCircle } from "lucide-react";
+import ArrowAnimation from "@/components/ArrowAnimation";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -128,6 +124,7 @@ const Home = () => {
         <button
           type="submit"
           className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
+          <FaWhatsapp size={32} />
           <span>Submit</span>
         </button>
       </form>
@@ -158,7 +155,7 @@ const Home = () => {
         </p>
         <button
           onClick={() => setModalState("form")}
-          className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-800">
+          className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-800 animate-pulse">
           Try Again
         </button>
       </div>
@@ -228,6 +225,11 @@ const Home = () => {
               </li>
             </ul>
           </div>
+
+          <div className="w-full flex items-center justify-center">
+            <ArrowAnimation />
+          </div>
+
           <div className="w-full flex items-center justify-center">
             <button
               onClick={() => {
