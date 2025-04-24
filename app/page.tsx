@@ -8,7 +8,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
-import { ChevronsRight, CircleCheckBig, XCircle } from "lucide-react";
+import { CircleCheckBig, XCircle } from "lucide-react";
 import ArrowAnimation from "@/components/ArrowAnimation";
 console.log("MODAL:", Modal);
 
@@ -246,10 +246,6 @@ const Home = () => {
               className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl font-bold">
                 Get Free List of Our Solar Packages
-                <ChevronsRight
-                  size={32}
-                  className="absolute top-[35px] left-32"
-                />
               </span>
             </button>
           </div>
@@ -301,10 +297,6 @@ const Home = () => {
               className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl font-bold">
                 Get Free List of Our Solar Packages
-                <ChevronsRight
-                  size={32}
-                  className="absolute top-[35px] left-32"
-                />
               </span>
             </button>
           </div>
