@@ -8,8 +8,9 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { services, videoLinks } from "./constants";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
-import { CircleCheckBig, XCircle } from "lucide-react";
+import { ChevronsRight, CircleCheckBig, XCircle } from "lucide-react";
 import ArrowAnimation from "@/components/ArrowAnimation";
+import FingerAnimation from "@/components/FingerAnimation";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -226,19 +227,34 @@ const Home = () => {
             </ul>
           </div>
 
+          <div className="text-white w-full flex items-center justify center">
+            <p className="text-center text-3xl italic">
+              Click the button below to get a free list of all our solar
+              packages with the price and all necessary details
+            </p>
+          </div>
+
           <div className="w-full flex items-center justify-center">
             <ArrowAnimation />
           </div>
 
-          <div className="w-full flex items-center justify-center">
-            <button
-              onClick={() => {
-                setModalState("form");
-                setIsOpen(true);
-              }}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              Get Free List of Our Solar Packages
-            </button>
+          <div className="w-full flex flex-col items-center justify-center ">
+            <div className="bg-linear-to-r from-purple-500 to-pink-500 p-[4px] w-3xl h-auto rounded-lg">
+              <button
+                onClick={() => {
+                  setModalState("form");
+                  setIsOpen(true);
+                }}
+                className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+                <span className="text-2xl font-bold">
+                  Get Free List of Our Solar Packages
+                  <ChevronsRight
+                    size={32}
+                    className="absolute top-[35px] left-32 animate-caret-blink"
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </section>
 
@@ -268,15 +284,27 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="w-full flex items-center justify-center">
-            <button
-              onClick={() => {
-                setModalState("form");
-                setIsOpen(true);
-              }}
-              className="my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg  font-bold bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              Get Free List of Our Solar Packages
-            </button>
+          <div className="w-full">
+            <ArrowAnimation />
+          </div>
+
+          <div className="w-full flex flex-col items-center justify-center ">
+            <div className="bg-linear-to-r from-purple-500 to-pink-500 p-[4px] w-3xl h-auto rounded-lg">
+              <button
+                onClick={() => {
+                  setModalState("form");
+                  setIsOpen(true);
+                }}
+                className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+                <span className="text-2xl font-bold">
+                  Get Free List of Our Solar Packages
+                  <ChevronsRight
+                    size={32}
+                    className="absolute top-[35px] left-32 animate-caret-blink"
+                  />
+                </span>
+              </button>
+            </div>
           </div>
         </section>
       </main>
