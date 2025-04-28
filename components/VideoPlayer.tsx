@@ -81,15 +81,15 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}>
-            <span className="relative flex size-20">
+            <span className="relative flex size-15">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75 pointer-events-none"></span>
 
               <button
                 title="play-button"
                 aria-label="play-button"
                 onClick={handlePlay}
-                className="inline-flex items-center justify-center size-20 rounded-full bg-sky-500 text-white transition">
-                <VolumeOff size={32} />
+                className="inline-flex items-center justify-center size-15 rounded-full bg-sky-500 text-white transition">
+                <VolumeOff size={22} />
               </button>
             </span>
           </motion.div>

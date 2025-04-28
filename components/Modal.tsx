@@ -60,23 +60,25 @@ const Modal: React.FC<ModalProps> = ({
           className={`translate duration-1200 ease-in-out h-full ${
             showModal ? "translate-y-0" : "translate-y-full"
           } ${showModal ? "opacity-100" : "opacity-0"} `}>
-          <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg w-full bg-white shadow-lg relative flex flex-col outline-none focus:outline-none">
-            <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
+          <div className="translate h-auto lg:h-auto md:h-auto border-0 rounded-lg w-full bg-white shadow-lg relative flex flex-col outline-none focus:outline-none">
+            <div className="flex items-center p-6 rounded-t justify-center relative">
               <button
-                className="absolute right-2 top-8"
+                className="absolute right-3 top-2"
                 onClick={handleClose}
                 title="Close modal"
                 aria-label="Close modal">
                 <IoMdClose size={22} />
               </button>
 
-              <div className="font-extrabold text-2xl text-blue-800">
+              <div className="font-extrabold text-2xl text-sky-600">
                 {title}
               </div>
             </div>
             {/* BODY */}
             <div className="relative p-6 flex-auto">
-              <div className="w-full text-lg mb-2">{subtitle}</div>
+              <div className="w-full text-lg mb-2 text-gray-700">
+                {subtitle}
+              </div>
               <div className="flex flex-col items-center w-full gap-4">
                 {body}
               </div>

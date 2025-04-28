@@ -25,6 +25,17 @@ const fadeInAnimationVariantY = {
     },
   }),
 };
+const scaleButtonAnimationVariant = {
+  initial: {
+    scale: 1,
+  },
+  animate: () => ({
+    scale: 1.2,
+    transition: {
+      ease: "easeIn",
+    },
+  }),
+};
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -123,9 +134,13 @@ const Home = () => {
         />
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-950">
-          <FaWhatsapp size={32} />
-          <span>Submit</span>
+          className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-500">
+          <div className="w-full flex justify-center items-center gap-6">
+            <FaWhatsapp size={32} />
+            <span className="font-bold capitalize">
+              Give me the list of packages
+            </span>
+          </div>
         </button>
       </form>
     ) : modalState === "submitting" ? (
@@ -136,14 +151,14 @@ const Home = () => {
     ) : modalState === "success" ? (
       <div className="flex flex-col items-center justify-center gap-4 py-8">
         <CircleCheckBig className="text-green-600" size={64} />
-        <p className="text-center text-xl font-bold">
-          Thank you for sharing your contact!
-        </p>
-        <p className="text-center text-gray-700 text-lg">
-          You will be redirected to WhatsApp in{" "}
-          <span className="font-bold">{countdown}</span> second
-          {countdown !== 1 ? "s" : ""}.
-        </p>
+        <div>
+          <p className="text-center text-xl font-bold uppercase">SUCCESS!</p>
+          <p className="text-center text-sm">
+            Thank you for sharing your contact with us. You will be redirected
+            to WhatsApp in <span className="font-bold">{countdown}</span> second
+            {countdown !== 1 ? "s" : ""}.
+          </p>
+        </div>
       </div>
     ) : (
       // Error state
@@ -163,30 +178,63 @@ const Home = () => {
 
   return (
     <>
-      <main className="border-0 text-white bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
+      <main className="border-0 dark:text-white text-lg dark:bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-10">
-            <p className=" text-center italic">At Last! You can now..</p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-2xl text-center">
+            <p className=" text-center italic">Good News!</p>
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-3xl text-center">
               Pay{" "}
               <span className="text-orange-500">&apos;Small Small&apos; </span>
               <br className="hidden md:inline-block" /> for a{" "}
               <br className="hidden md:inline-block" />
               Professional Solar/Inverter Installation
             </h1>
-            <p className=" text-center italic">
-              courtesy of Valuemine Power Solutions!
+          </div>
+          <div>
+            <p className="">
+              Thanks to{" "}
+              <span className="text-orange-500 font-bold">
+                Valuemine Power Solutions,{" "}
+              </span>
+              you don&apos;t have to break the bank anymore. We now allow you to
+              pay in easy small-small payments -up to 12 months!
             </p>
           </div>
-          <p className="">
-            <span className="italic">It&apos;s true!</span> You can now pay for
-            a professional solar/inverter installation in easy installments of
-            up to 12 months!.
-          </p>
-          <p className="lg:text-lg">
-            Here&apos;s what our customers are saying:
-          </p>
-          <div className="w-full flex flex-col md:flex-row items-center md:justify-between justify-center py-10 gap-8 md:gap-4">
+
+          <div className="w-full flex flex-col items-center gap-6 my-10">
+            <p className="font-bold text-2xl">
+              Here&apos;s why smart Nigerians are choosing us:
+            </p>
+            <ul className="flex md:flex-row md:justify-between flex-col items-center gap-6 font-bold">
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Very Affordable Packages
+              </li>
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Warranty on Every Installation
+              </li>
+              <li className="text-center flex flex-col items-center w-full">
+                <span>
+                  <CircleCheckBig className="text-sky-400" />
+                </span>
+                Top Notch Protection Kit Included
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p>
+              But don&apos;t just take our word for it. Hear from some of our
+              happy customers!
+            </p>
+          </div>
+
+          <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between justify-center py-10 gap-8 md:gap-4">
             {videoLinks.map((link, index) => (
               <motion.div
                 className="w-full"
@@ -202,52 +250,35 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          <div className="w-full flex flex-col items-center gap-6 mb-10">
-            <p className="font-bold text-lg">All our packages:</p>
-            <ul className="flex md:flex-row md:justify-between flex-col items-center gap-6 font-bold">
-              <li className="text-center flex flex-col items-center w-full">
-                <span>
-                  <CircleCheckBig className="text-sky-400" />
-                </span>
-                Are Very Affordable
-              </li>
-              <li className="text-center flex flex-col items-center w-full">
-                <span>
-                  <CircleCheckBig className="text-sky-400" />
-                </span>
-                Come with a Warranty
-              </li>
-              <li className="text-center flex flex-col items-center w-full">
-                <span>
-                  <CircleCheckBig className="text-sky-400" />
-                </span>
-                Include iron clad Protection kit
-              </li>
-            </ul>
-          </div>
 
-          <div className="text-white w-full flex items-center justify center">
+          <div className="text-white w-full flex-col items-center justify center">
+            <p className="text-center text-lg">
+              Ready to see all the packages and prices?
+            </p>
             <p className="text-center text-3xl italic">
-              Click the button below to get a free list of all our solar
-              packages with the price and all necessary details
+              Click the button below and we will send you a FREE list of all our
+              solar packages with full details.
             </p>
           </div>
 
           <div className="w-full flex items-center justify-center">
-            <ArrowAnimation />
+            <ArrowAnimation size={24} />
           </div>
 
-          <div className="w-full flex flex-col items-center justify-center ">
-            <button
+          <div className="w-full flex flex-col items-center m-0 justify-center ">
+            <motion.button
+              variants={scaleButtonAnimationVariant}
+              initial="initial"
+              whileInView="animate"
               onClick={() => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-2xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl font-bold">
                 Get Free List of Our Solar Packages
               </span>
-            </button>
+            </motion.button>
           </div>
         </section>
 
@@ -257,12 +288,11 @@ const Home = () => {
               who we are
             </h2>
             <p>
-              Valuemine Power Solutions is one of the fastest growing brands in
-              the world of solar powered technologies and general electrical
-              installations.
+              At <span className="font-bold">Valuemine Power Solutions</span>,
+              we help Nigerians enjoy steady light without stress. We specialize
+              in:
             </p>
-            <p>Our services include but are not limited to:</p>
-            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center my-20">
+            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center my-10">
               {services.map(({ text, icon: Icon, iconSize }, index) => (
                 <motion.div
                   key={index}
@@ -277,38 +307,44 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="text-white w-full flex items-center justify center">
+          <div className="text-white w-full flex flex-col items-center justify center">
+            <p className="text-center text-lg">
+              Want to know the best solar ideal for you?
+            </p>
             <p className="text-center text-3xl italic">
-              Click the button below to get a free list of all our solar
-              packages with the price and all necessary details
+              Click the button below and we will send you a FREE list of all our
+              solar packages with full details.
             </p>
           </div>
 
           <div className="w-full">
-            <ArrowAnimation />
+            <ArrowAnimation size={18} />
           </div>
 
           <div className="w-full flex flex-col items-center justify-center ">
-            <button
+            <motion.button
+              variants={scaleButtonAnimationVariant}
+              initial="initial"
+              whileInView="animate"
               onClick={() => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-lg bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-2xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl font-bold">
                 Get Free List of Our Solar Packages
               </span>
-            </button>
+            </motion.button>
           </div>
         </section>
       </main>
       <Modal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        title={modalState === "form" ? "You're Almost There!" : ""}
+        title={modalState === "form" ? "You're Just One Step Away!" : ""}
         subtitle={
           modalState === "form"
-            ? "Kindly enter your contact details so we can easily get in touch"
+            ? "Kindly enter your contact details so we can easily get in touch with you."
             : ""
         }
         body={bodyContent}
