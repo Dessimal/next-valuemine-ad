@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import { CircleCheckBig, XCircle } from "lucide-react";
 import ArrowAnimation from "@/components/ArrowAnimation";
+import Link from "next/link";
 console.log("MODAL:", Modal);
 
 const fadeInAnimationVariantY = {
@@ -354,7 +355,43 @@ const Home = () => {
       />
 
       <Footer>
-        <p>Copyright Valuemine 2025</p>
+        <div className="footer-content text-center text-sm text-gray-600 p-6">
+          <p>© 2025 Valuemine Power Solutions. All rights reserved.</p>
+
+          <p className="mt-2">
+            <a
+              href="/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline">
+              Privacy Policy
+            </a>{" "}
+            |{" "}
+            <a
+              href="/terms-of-service"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline">
+              Terms of Service
+            </a>{" "}
+            |{" "}
+            <a href="mailto:support@valuemine.com" className="underline">
+              Contact Us
+            </a>
+          </p>
+
+          <p className="mt-4 text-xs italic">
+            This site is not a part of the Facebook™ website or Facebook Inc.
+            Additionally, this site is NOT endorsed by Facebook™ in any way.
+            Facebook™ is a trademark of Facebook, Inc.
+          </p>
+
+          <p className="mt-4 text-xs">
+            Valuemine Power Solutions helps homeowners access reliable solar
+            energy with flexible payment options. Offers and financing are
+            subject to change and approval.
+          </p>
+        </div>
       </Footer>
     </>
   );
