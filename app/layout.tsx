@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Valuemine",
     images: [
       {
-        url: "https://img.freepik.com/photos-premium/portrait-jeune-femme-noire-se-sentant-excitee-criant-omg-wow-exprimant-emotion-joie-fond-studio-rose_116547-25852.jpg",
+        url: "https://i.pinimg.com/736x/b2/24/33/b22433dc7221034319e5f1150dfc6924.jpg",
         width: 800,
         height: 600,
       },

@@ -262,7 +262,7 @@ const Home = () => {
           </div>
 
           <div className="w-full flex items-center justify-center">
-            <ArrowAnimation size={24} />
+            <ArrowAnimation />
           </div>
 
           <div className="w-full flex flex-col items-center m-0 justify-center ">
@@ -318,7 +318,7 @@ const Home = () => {
           </div>
 
           <div className="w-full">
-            <ArrowAnimation size={18} />
+            <ArrowAnimation />
           </div>
 
           <div className="w-full flex flex-col items-center justify-center ">
