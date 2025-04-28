@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Valuemine",
     images: [
       {
-        url: "https://i.pinimg.com/736x/b2/24/33/b22433dc7221034319e5f1150dfc6924.jpg",
+        url: "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI1LTAxL3Jhd3BpeGVsb2ZmaWNlOF9mcm9udF92aWV3X3Bob3RvX29mX2FfYWZyaWNhbl93b21hbl9jaXZpbF9lbmdpbl8wNDk2ZTFhYS0yN2RjLTQ1YjctOWQ2My0zMGZhNGFmZTJjZjJfMS5qcGc.jpg",
         width: 800,
         height: 600,
       },

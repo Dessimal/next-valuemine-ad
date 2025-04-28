@@ -181,7 +181,9 @@ const Home = () => {
       <main className="border-0 dark:text-white text-neutral-900 text-lg dark:bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-10">
-            <p className=" text-center italic">Good News!</p>
+            <p className=" text-center italic">
+              At Last! <span className="italic">You Can Now</span>
+            </p>
             <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-3xl text-center">
               Pay{" "}
               <span className="text-orange-500">&apos;Small Small&apos; </span>
@@ -275,7 +277,7 @@ const Home = () => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              className="relative shadow-2xl z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl text-white font-bold">
                 Get Free List of Our Solar Packages
               </span>
@@ -331,7 +333,7 @@ const Home = () => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              className="relative shadow-2xl z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
               <span className="text-2xl text-white font-bold">
                 Get Free List of Our Solar Packages
               </span>
