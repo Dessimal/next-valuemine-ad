@@ -27,10 +27,10 @@ const fadeInAnimationVariantY = {
 };
 const scaleButtonAnimationVariant = {
   initial: {
-    scale: 1,
+    scale: 0.85,
   },
   animate: () => ({
-    scale: 1.2,
+    scale: 1,
     transition: {
       ease: "easeIn",
     },
@@ -178,7 +178,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="border-0 dark:text-white text-lg dark:bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
+      <main className="border-0 dark:text-white text-neutral-900 text-lg dark:bg-gradient-to-b from-slate-950 via-stone-950 to-gray-950  w-full h-auto flex flex-col items-center justify-center ">
         <section className="w-full h-auto py-20 px-5 xl:px-30 lg:px-20 flex flex-col">
           <div className="w-full pb-10">
             <p className=" text-center italic">Good News!</p>
@@ -196,8 +196,9 @@ const Home = () => {
               <span className="text-orange-500 font-bold">
                 Valuemine Power Solutions,{" "}
               </span>
-              you don&apos;t have to break the bank anymore. We now allow you to
-              pay in easy small-small payments -up to 12 months!
+              you don&apos;t have to break the bank to have solar/inverter
+              system anymore. We now allow you to pay in easy small-small
+              payments - up to 12 months!
             </p>
           </div>
 
@@ -251,7 +252,7 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-white w-full flex-col items-center justify center">
+          <div className=" w-full flex-col items-center justify center">
             <p className="text-center text-lg">
               Ready to see all the packages and prices?
             </p>
@@ -274,8 +275,8 @@ const Home = () => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-2xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              <span className="text-2xl font-bold">
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              <span className="text-2xl text-white font-bold">
                 Get Free List of Our Solar Packages
               </span>
             </motion.button>
@@ -307,7 +308,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="text-white w-full flex flex-col items-center justify center">
+          <div className="w-full flex flex-col items-center justify center">
             <p className="text-center text-lg">
               Want to know the best solar ideal for you?
             </p>
@@ -330,8 +331,8 @@ const Home = () => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-3xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              <span className="text-2xl font-bold">
+              className="relative z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
+              <span className="text-2xl text-white font-bold">
                 Get Free List of Our Solar Packages
               </span>
             </motion.button>
