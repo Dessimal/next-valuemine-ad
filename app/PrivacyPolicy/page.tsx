@@ -1,42 +1,113 @@
-import { NextPage } from "next";
-import Link from "next/link";
+import { Metadata } from "next";
 
-const PrivacyPolicy: NextPage = () => {
-  return (
-    <div>
-      <h1>Privacy Policy</h1>
-      <p>
-        At Valuemine Power Solutions, we respect your privacy and are committed
-        to protecting the personal data you share with us. This Privacy Policy
-        outlines how we collect, use, and protect your information.
-      </p>
-      <h2>Information We Collect</h2>
-      <p>
-        We collect personal information such as your name, email address, and
-        payment information when you sign up or purchase our services.
-      </p>
-      <h2>How We Use Your Information</h2>
-      <p>
-        Your information is used to provide you with personalized service,
-        respond to inquiries, and send you relevant updates or marketing
-        materials.
-      </p>
-      <h2>Data Protection</h2>
-      <p>
-        We implement reasonable security measures to protect your personal data
-        from unauthorized access or disclosure.
-      </p>
-      <h2>Contact Us</h2>
-      <p>
-        If you have any questions about our privacy practices, please contact us
-        at{" "}
-        <Link href="mailto:support@valuemine.com.ng">
-          support@valuemine.com
-        </Link>
-        .
-      </p>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "Privacy Policy | Valuemine Power Solutions",
+  description:
+    "Read the privacy practices of Valuemine Power Solutions. Learn how we collect, use, and protect your personal information.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
-export default PrivacyPolicy;
+import Link from "next/link";
+
+export default function PrivacyPolicyPage() {
+  return (
+    <main className="max-w-4xl mx-auto px-6 py-12">
+      <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
+
+      <p className="mb-4">Effective Date: April 28, 2025</p>
+
+      <p className="mb-4">
+        Welcome to Valuemine Power Solutions (&apos;we&apos;, &apos;our&apos;,
+        &apos;us&apos;). Your privacy is important to us. This Privacy Policy
+        explains how we collect, use, and protect your information when you
+        visit our website or use our services.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">
+        1. Information We Collect
+      </h2>
+      <p className="mb-4">
+        We may collect personal information such as your name, email address,
+        phone number, and payment details when you interact with our website,
+        make a purchase, or contact us for inquiries.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">
+        2. How We Use Your Information
+      </h2>
+      <p className="mb-4">We use your information to:</p>
+      <ul className="list-disc list-inside mb-4">
+        <li>Process transactions and deliver services.</li>
+        <li>Send important updates about your orders or service requests.</li>
+        <li>Improve our website, services, and marketing efforts.</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">
+        3. Sharing of Information
+      </h2>
+      <p className="mb-4">
+        We do not sell, trade, or rent your personal information to third
+        parties. We may share your information with trusted service providers
+        who assist us in operating our website, processing payments, or
+        delivering services — provided they agree to keep your information
+        confidential.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">
+        4. Cookies and Tracking Technologies
+      </h2>
+      <p className="mb-4">
+        We may use cookies and similar technologies to enhance your experience
+        on our website, understand usage patterns, and deliver targeted
+        advertisements.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">5. Your Rights</h2>
+      <p className="mb-4">
+        You have the right to access, correct, or delete your personal
+        information. To make a request, please contact us at the details
+        provided below.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">6. Data Security</h2>
+      <p className="mb-4">
+        We implement reasonable security measures to protect your information.
+        However, no method of transmission over the internet or method of
+        electronic storage is 100% secure.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">
+        7. Changes to This Policy
+      </h2>
+      <p className="mb-4">
+        We may update this Privacy Policy from time to time. We encourage you to
+        review this page periodically for any changes.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-8 mb-4">8. Contact Us</h2>
+      <p className="mb-4">
+        If you have any questions about this Privacy Policy, you can contact us
+        at:
+      </p>
+      <p className="mb-2">
+        <strong>Valuemine Power Solutions</strong>
+        <br />
+        Email: support@valuemine.com
+        <br />
+        Phone: +234 800 000 0000
+      </p>
+
+      <div className="mt-10">
+        <Link
+          href="/"
+          className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-md transition">
+          Return to Landing Page
+        </Link>
+      </div>
+    </main>
+  );
+}

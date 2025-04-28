@@ -185,7 +185,7 @@ const Home = () => {
             <p className=" text-center italic">
               At Last! <span className="italic">You Can Now</span>
             </p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-3xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-8xl text-3xl text-center">
               Pay{" "}
               <span className="text-orange-500">&apos;Small Small&apos; </span>
               <br className="hidden md:inline-block" /> for a{" "}
@@ -199,7 +199,7 @@ const Home = () => {
               <span className="text-orange-500 font-bold">
                 Valuemine Power Solutions,{" "}
               </span>
-              you don&apos;t have to break the bank to have solar/inverter
+              you don&apos;t have to break the bank to have a solar/inverter
               system anymore. We now allow you to pay in easy small-small
               payments - up to 12 months!
             </p>
@@ -265,7 +265,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="w-full flex items-center justify-center">
+          <div>
             <ArrowAnimation />
           </div>
 
@@ -296,7 +296,7 @@ const Home = () => {
               we help Nigerians enjoy steady light without stress. We specialize
               in:
             </p>
-            <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6  justify-between items-center my-10">
+            <div className="h-full w-full grid sm:grid-cols-2 md:grid-cols-3 gap-6 my-10">
               {services.map(({ text, icon: Icon, iconSize }, index) => (
                 <motion.div
                   key={index}
@@ -317,11 +317,11 @@ const Home = () => {
             </p>
             <p className="text-center text-3xl italic">
               Click the button below and we will send you a FREE list of all our
-              solar packages with full details.
+              solar packages with full details. 0042
             </p>
           </div>
 
-          <div className="w-full">
+          <div>
             <ArrowAnimation />
           </div>
 
@@ -359,25 +359,25 @@ const Home = () => {
           <p>© 2025 Valuemine Power Solutions. All rights reserved.</p>
 
           <p className="mt-2">
-            <a
+            <Link
               href="/privacy-policy"
               target="_blank"
               rel="noopener noreferrer"
               className="underline">
               Privacy Policy
-            </a>{" "}
+            </Link>{" "}
             |{" "}
-            <a
+            <Link
               href="/terms-of-service"
               target="_blank"
               rel="noopener noreferrer"
               className="underline">
               Terms of Service
-            </a>{" "}
+            </Link>{" "}
             |{" "}
-            <a href="mailto:support@valuemine.com" className="underline">
+            <Link href="mailto:support@valuemine.com" className="underline">
               Contact Us
-            </a>
+            </Link>
           </p>
 
           <p className="mt-4 text-xs italic">
@@ -387,9 +387,9 @@ const Home = () => {
           </p>
 
           <p className="mt-4 text-xs">
-            Valuemine Power Solutions helps homeowners access reliable solar
-            energy with flexible payment options. Offers and financing are
-            subject to change and approval.
+            Valuemine Power Solutions helps homeowners and businesses access
+            reliable solar energy with flexible payment options. Offers and
+            financing are subject to change and approval.
           </p>
         </div>
       </Footer>
