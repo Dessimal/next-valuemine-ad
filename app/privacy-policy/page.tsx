@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import {ArrowBigLeft} from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Valuemine Power Solutions",
@@ -98,13 +99,14 @@ export default function PrivacyPolicyPage() {
         <br />
         Email: support@valuemine.com
         <br />
-        Phone: +234 800 000 0000
+        Phone: +234 902 053 2639
       </p>
 
-      <div className="mt-10">
+      <div className="mt-10 bg-linear-to-r from-blue-500 to-pink-500 via-purple-500">
         <Link
           href="/"
-          className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-md transition">
+          className="inline-flex justify-center items-center text-white font-semibold py-3 px-6 rounded-md transition">
+          <ArrowBigLeft/>
           Return to Landing Page
         </Link>
       </div>

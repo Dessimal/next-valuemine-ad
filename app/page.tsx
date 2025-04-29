@@ -11,7 +11,9 @@ import Card from "@/components/Card";
 import { CircleCheckBig, XCircle } from "lucide-react";
 import ArrowAnimation from "@/components/ArrowAnimation";
 import Link from "next/link";
+import Image from "next/image";
 console.log("MODAL:", Modal);
+import { solarSetups } from "./constants";
 
 const fadeInAnimationVariantY = {
   initial: {
@@ -193,7 +195,7 @@ const Home = () => {
               Professional Solar/Inverter Installation
             </h1>
           </div>
-          <div>
+          <div className="space-y-10">
             <p className="">
               Thanks to{" "}
               <span className="text-orange-500 font-bold">
@@ -203,6 +205,33 @@ const Home = () => {
               system anymore. We now allow you to pay in easy small-small
               payments - up to 12 months!
             </p>
+
+            <p>
+              And NO, we&apos;re not referring to tiny solar systems that can
+              only power small low grade LED bulbs and dc fans. We&apos;re
+              talking about robust solar/inverter systems like the one in the
+              pictures below:
+            </p>
+          </div>
+
+          <div className="w-full  mx-auto my-10 grid place-items-center sm:grid-cols-3 gap-4">
+            {solarSetups.map((solarSetup, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInAnimationVariantY}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                custom={index}>
+                <Image
+                  className="shadow-xl object-cover object-center rounded-lg border-gray-950"
+                  src={solarSetup}
+                  height={250}
+                  width={250}
+                  alt="picture of inverter setup"
+                />
+              </motion.div>
+            ))}
           </div>
 
           <div className="w-full flex flex-col items-center gap-6 my-10">
@@ -317,7 +346,7 @@ const Home = () => {
             </p>
             <p className="text-center text-3xl italic">
               Click the button below and we will send you a FREE list of all our
-              solar packages with full details. 0042
+              solar packages with full details.
             </p>
           </div>
 

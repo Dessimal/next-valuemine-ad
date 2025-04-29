@@ -1,6 +1,7 @@
 // app/terms-and-conditions/page.tsx
 import Link from "next/link";
 import { Metadata } from "next";
+import {ArrowBigLeft} from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | Valuemine Power Solutions",
@@ -60,11 +61,14 @@ export default function TermsAndConditionsPage() {
         you to review this page periodically for any changes.
       </p>
 
-      <Link
-        href="/"
-        className="inline-block px-6 py-3 bg-purple-600 text-white rounded hover:bg-purple-700 transition">
-        Return to Homepage
-      </Link>
+      <div className="mt-10 bg-linear-to-r from-blue-500 to-pink-500 via-purple-500">
+        <Link
+          href="/"
+          className="inline-flex justify-center items-center text-white font-semibold py-3 px-6 rounded-md transition">
+          <ArrowBigLeft/>
+          Return to Landing Page
+        </Link>
+      </div>
     </main>
   );
 }
