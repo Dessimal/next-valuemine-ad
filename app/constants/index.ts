@@ -11,15 +11,15 @@ import valuemineOne from "@/public/valuemine-setup-1.jpg";
 
 import valuemineFour from "@/public/valuemine-setup-4.jpg";
 
-import valuemineFive from "../../public/valuemine-setup-5.jpg";
+import valuemineSix from "../../public/valuemine-setup-6.jpg";
 
 export const videoLinks = [
   "https://res.cloudinary.com/druwmu39g/video/upload/v1745409377/avwwz26bqagorah2d5be.mp4",
   "https://res.cloudinary.com/druwmu39g/video/upload/v1745811611/2Nd-Biodun_Alonge_1_d7xskq.mp4",
-  "https://res.cloudinary.com/druwmu39g/video/upload/v1745409377/avwwz26bqagorah2d5be.mp4",
+  "https://res.cloudinary.com/druwmu39g/video/upload/v1746011976/0430_mrst13.mp4",
 ];
 
-export const solarSetups = [valuemineOne, valuemineFour, valuemineFive];
+export const solarSetups = [valuemineOne, valuemineFour, valuemineSix];
 
 export const services = [
   {
