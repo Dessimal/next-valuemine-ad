@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Script from "next/script";
 
@@ -82,6 +82,7 @@ fbq('track', 'PageView');
           />
         </noscript>
       </head>
+      <GoogleAnalytics gaId="G-NKM6Z40LVL" />
       <GoogleTagManager gtmId="GTM-W96DLD9F" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

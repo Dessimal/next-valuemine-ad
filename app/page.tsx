@@ -14,7 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 console.log("MODAL:", Modal);
 import { solarSetups } from "./constants";
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 const fadeInAnimationVariantY = {
   initial: {
@@ -88,6 +88,7 @@ const Home = () => {
       }
 
       sendGTMEvent({ event: "buttonClicked", value: "form submitted" });
+      sendGAEvent("event", "buttonClicked", { value: "open form" });
 
       // Change modal body to success state
       setModalState("success");
@@ -297,6 +298,7 @@ const Home = () => {
             <motion.button
               onClick={() => {
                 sendGTMEvent({ event: "buttonClicked", value: "open form" });
+                sendGAEvent("event", "buttonClicked", { value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
               }}
@@ -373,6 +375,7 @@ const Home = () => {
               whileInView="animate"
               onClick={() => {
                 sendGTMEvent({ event: "buttonClicked", value: "open form" });
+                sendGAEvent("event", "buttonClicked", { value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
               }}
