@@ -82,10 +82,7 @@ fbq('track', 'PageView');
           />
         </noscript>
       </head>
-      <GoogleTagManager
-        gtmId="
-GTM-W96DLD9F"
-      />
+      <GoogleTagManager gtmId="GTM-W96DLD9F" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
