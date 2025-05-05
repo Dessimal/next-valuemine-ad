@@ -327,8 +327,9 @@ const Home = () => {
 
           <div className="w-full flex flex-col items-center m-0 justify-center">
             <motion.button
-              initial={{ "--x": "100%" }}
+              initial={{ "--x": "100%", scale: 1 }}
               animate={{ "--x": "-100%" }}
+              whileTap={{ scale: 0.97 }}
               transition={{
                 repeat: Infinity,
                 repeatType: "loop",
@@ -337,17 +338,18 @@ const Home = () => {
                 stiffness: 20,
                 damping: 15,
                 mass: 2,
+                scale: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                  mass: 0.1,
+                },
               }}
-              onClick={() => {
-                setModalState("form");
-                setIsOpen(true);
-              }}
-              style={{ "--x": "100%" }} // ensure custom property is passed
-              className="px-6 py-2 rounded-md relative radial-gradient overflow-hidden">
-              <span className="text-2xl text-white font-bold tracking-wide block relative z-10">
-                Get List of packages
+              className="w-full bg-red-500 px-6 py-8 rounded-md relative radial-gradient">
+              <span className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask">
+                Get FREE List of Packages Now
               </span>
-              <span className="block absolute inset-0 rounded-md p-px linear-overlay pointer-events-none" />
+              <span className="block absolute inset-0 rounded-md p-4 linear-overlay" />
             </motion.button>
           </div>
         </section>
