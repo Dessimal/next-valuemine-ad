@@ -187,7 +187,7 @@ const Home = () => {
             <p className=" text-center italic">
               At Last! <span className="italic">You Can Now</span>
             </p>
-            <h1 className="font-extrabold sm:text-6xl lg:text-8xl text-3xl text-center">
+            <h1 className="font-extrabold sm:text-6xl lg:text-7xl text-3xl text-center">
               Pay{" "}
               <span className="text-orange-500">&apos;Small Small&apos; </span>
               <br className="hidden md:inline-block" /> for a{" "}
@@ -214,7 +214,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="w-full  mx-auto my-10 grid place-items-center sm:grid-cols-3 gap-4">
+          <div className="w-full mx-auto my-10 grid place-items-center sm:grid-cols-3 gap-4">
             {solarSetups.map((solarSetup, index) => (
               <motion.div
                 key={index}
@@ -222,9 +222,11 @@ const Home = () => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                custom={index}>
+                custom={index}
+                className="w-[250px] h-[250px]" // ensure consistent box size
+              >
                 <Image
-                  className="shadow-xl object-cover object-center rounded-lg border-gray-950"
+                  className="shadow-xl object-cover object-center rounded-lg border border-gray-950 w-full h-full"
                   src={solarSetup}
                   height={250}
                   width={250}
