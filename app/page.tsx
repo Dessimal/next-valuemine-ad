@@ -28,17 +28,7 @@ const fadeInAnimationVariantY = {
     },
   }),
 };
-const scaleButtonAnimationVariant = {
-  initial: {
-    scale: 0.85,
-  },
-  animate: () => ({
-    scale: 1,
-    transition: {
-      ease: "easeIn",
-    },
-  }),
-};
+const scaleButtonAnimationVariant = {};
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -300,19 +290,64 @@ const Home = () => {
             <ArrowAnimation />
           </div>
 
-          <div className="w-full flex flex-col items-center m-0 justify-center ">
+          {/* <div className="w-full flex flex-col items-center m-0 justify-center ">
             <motion.button
-              variants={scaleButtonAnimationVariant}
-              initial="initial"
-              whileInView="animate"
+              initial={{ "--x": "100%", scale: 1 }}
+              animate={{
+                "--x": "-100%",
+                scale: 0.97,
+              }}
+              style={{ "--x": "var(--x)" }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                repeatDelay: 1,
+                type: "spring",
+                stiffness: 20,
+                damping: 15,
+                mass: 2,
+                scale: {
+                  type: "spring",
+                  stiffness: 10,
+                  damping: 5,
+                  mass: 0.1,
+                },
+              }}
               onClick={() => {
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative shadow-2xl z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              <span className="text-2xl text-white font-bold">
-                Get Free List of Our Solar Packages
+              className="px-6 py-2 rounded-md relative radial-gradient">
+              <span className="text-2xl text-white font-bold tracking-wide block relative">
+                Get List of packages
               </span>
+              <span className="block absolute inset-0 rounded-md p-px linear-overlay" />
+            </motion.button>
+          </div> */}
+
+          <div className="w-full flex flex-col items-center m-0 justify-center">
+            <motion.button
+              initial={{ "--x": "100%" }}
+              animate={{ "--x": "-100%" }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                repeatDelay: 1,
+                type: "spring",
+                stiffness: 20,
+                damping: 15,
+                mass: 2,
+              }}
+              onClick={() => {
+                setModalState("form");
+                setIsOpen(true);
+              }}
+              style={{ "--x": "100%" }} // ensure custom property is passed
+              className="px-6 py-2 rounded-md relative radial-gradient overflow-hidden">
+              <span className="text-2xl text-white font-bold tracking-wide block relative z-10">
+                Get List of packages
+              </span>
+              <span className="block absolute inset-0 rounded-md p-px linear-overlay pointer-events-none" />
             </motion.button>
           </div>
         </section>
