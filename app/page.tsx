@@ -14,6 +14,8 @@ import Link from "next/link";
 import Image from "next/image";
 console.log("MODAL:", Modal);
 import { solarSetups } from "./constants";
+import { sendGTMEvent } from "@next/third-parties/google";
+
 
 const fadeInAnimationVariantY = {
   initial: {
@@ -85,6 +87,8 @@ const Home = () => {
       if (typeof window !== "undefined" && window.fbq) {
         window.fbq("track", "Lead");
       }
+
+      sendGTMEvent({ event: 'buttonClicked', value: 'form submitted' })
 
       // Change modal body to success state
       setModalState("success");
@@ -290,43 +294,13 @@ const Home = () => {
             <ArrowAnimation />
           </div>
 
-          {/* <div className="w-full flex flex-col items-center m-0 justify-center ">
-            <motion.button
-              initial={{ "--x": "100%", scale: 1 }}
-              animate={{
-                "--x": "-100%",
-                scale: 0.97,
-              }}
-              style={{ "--x": "var(--x)" }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 1,
-                type: "spring",
-                stiffness: 20,
-                damping: 15,
-                mass: 2,
-                scale: {
-                  type: "spring",
-                  stiffness: 10,
-                  damping: 5,
-                  mass: 0.1,
-                },
-              }}
-              onClick={() => {
-                setModalState("form");
-                setIsOpen(true);
-              }}
-              className="px-6 py-2 rounded-md relative radial-gradient">
-              <span className="text-2xl text-white font-bold tracking-wide block relative">
-                Get List of packages
-              </span>
-              <span className="block absolute inset-0 rounded-md p-px linear-overlay" />
-            </motion.button>
-          </div> */}
-
           <div className="w-full flex flex-col items-center m-0 justify-center">
             <motion.button
+              onClick={() =>
+                sendGTMEvent({ event: "buttonClicked", value: "open form" })
+                setModalState("form");
+                setIsOpen(true);
+              }
               initial={{ "--x": "100%", scale: 1 }}
               animate={{ "--x": "-100%" }}
               whileTap={{ scale: 0.97 }}
@@ -346,8 +320,8 @@ const Home = () => {
                 },
               }}
               className="w-full bg-red-500 px-6 py-8 rounded-md relative radial-gradient">
-              <span className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask">
-                Get FREE List of Packages Now
+              <span className="text-neutral-100 tracking-wide font-bold h-full w-full block relative linear-mask">
+                Get FREE List Our Solar Packages Now
               </span>
               <span className="block absolute inset-0 rounded-md p-4 linear-overlay" />
             </motion.button>
@@ -398,7 +372,8 @@ const Home = () => {
               variants={scaleButtonAnimationVariant}
               initial="initial"
               whileInView="animate"
-              onClick={() => {
+            onClick={() => {
+                sendGTMEvent({ event: "buttonClicked", value: "open form" })
                 setModalState("form");
                 setIsOpen(true);
               }}
