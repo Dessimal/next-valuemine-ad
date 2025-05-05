@@ -16,7 +16,6 @@ console.log("MODAL:", Modal);
 import { solarSetups } from "./constants";
 import { sendGTMEvent } from "@next/third-parties/google";
 
-
 const fadeInAnimationVariantY = {
   initial: {
     opacity: 0,
@@ -88,7 +87,7 @@ const Home = () => {
         window.fbq("track", "Lead");
       }
 
-      sendGTMEvent({ event: 'buttonClicked', value: 'form submitted' })
+      sendGTMEvent({ event: "buttonClicked", value: "form submitted" });
 
       // Change modal body to success state
       setModalState("success");
@@ -296,11 +295,11 @@ const Home = () => {
 
           <div className="w-full flex flex-col items-center m-0 justify-center">
             <motion.button
-              onClick={() =>
-                sendGTMEvent({ event: "buttonClicked", value: "open form" })
+              onClick={() => {
+                sendGTMEvent({ event: "buttonClicked", value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
-              }
+              }}
               initial={{ "--x": "100%", scale: 1 }}
               animate={{ "--x": "-100%" }}
               whileTap={{ scale: 0.97 }}
@@ -372,8 +371,8 @@ const Home = () => {
               variants={scaleButtonAnimationVariant}
               initial="initial"
               whileInView="animate"
-            onClick={() => {
-                sendGTMEvent({ event: "buttonClicked", value: "open form" })
+              onClick={() => {
+                sendGTMEvent({ event: "buttonClicked", value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
               }}
