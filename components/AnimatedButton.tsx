@@ -17,7 +17,9 @@ export default function AnimatedButton({
   return (
     <motion.button
       onClick={onClick}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       initial={{ "--x": "100%", scale: 1 } as any}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       animate={{ "--x": "-100%" } as any}
       whileTap={{ scale: 0.97 }}
       transition={{

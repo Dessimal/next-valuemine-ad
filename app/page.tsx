@@ -30,7 +30,6 @@ const fadeInAnimationVariantY = {
     },
   }),
 };
-const scaleButtonAnimationVariant = {};
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
