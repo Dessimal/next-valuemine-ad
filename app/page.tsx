@@ -15,6 +15,7 @@ import Image from "next/image";
 console.log("MODAL:", Modal);
 import { solarSetups } from "./constants";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
+import AnimatedButton from "@/components/AnimatedButton";
 
 const fadeInAnimationVariantY = {
   initial: {
@@ -88,7 +89,7 @@ const Home = () => {
       }
 
       sendGTMEvent({ event: "buttonClicked", value: "form submitted" });
-      sendGAEvent("event", "buttonClicked", { value: "open form" });
+      sendGAEvent("event", "buttonClicked", { value: "form submitted" });
 
       // Change modal body to success state
       setModalState("success");
@@ -295,41 +296,19 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col items-center m-0 justify-center">
-            <motion.button
+            <AnimatedButton
               onClick={() => {
                 sendGTMEvent({ event: "buttonClicked", value: "open form" });
                 sendGAEvent("event", "buttonClicked", { value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
               }}
-              initial={{ "--x": "100%", scale: 1 }}
-              animate={{ "--x": "-100%" }}
-              whileTap={{ scale: 0.97 }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 1,
-                type: "spring",
-                stiffness: 20,
-                damping: 15,
-                mass: 2,
-                scale: {
-                  type: "spring",
-                  stiffness: 10,
-                  damping: 5,
-                  mass: 0.1,
-                },
-              }}
-              className="w-full bg-red-500 px-6 py-8 rounded-md relative radial-gradient">
-              <span className="text-neutral-100 tracking-wide font-bold h-full w-full block relative linear-mask">
-                Get FREE List Our Solar Packages Now
-              </span>
-              <span className="block absolute inset-0 rounded-md p-4 linear-overlay" />
-            </motion.button>
+              label="Get FREE List of Our Solar Packages Now"
+            />
           </div>
         </section>
 
-        <section className="w-full text-white py-20 px-5 xl:px-30 lg:px-20">
+        <section className="w-full py-20 px-5 xl:px-30 lg:px-20">
           <div className="flex flex-col gap-4 py-10">
             <h2 className="text-3xl text-center font-bold capitalize bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent inline-block bg-clip-text">
               who we are
@@ -369,21 +348,15 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col items-center justify-center ">
-            <motion.button
-              variants={scaleButtonAnimationVariant}
-              initial="initial"
-              whileInView="animate"
+            <AnimatedButton
               onClick={() => {
                 sendGTMEvent({ event: "buttonClicked", value: "open form" });
                 sendGAEvent("event", "buttonClicked", { value: "open form" });
                 setModalState("form");
                 setIsOpen(true);
               }}
-              className="relative shadow-2xl z-50 my-8 px-6 py-8 w-full max-w-[800px] shadow-lg rounded-4xl bg-orange-600 hover:bg-sky-950 hover:border-2 hover:border-white transition-color linear duration-300">
-              <span className="text-2xl text-white font-bold">
-                Get Free List of Our Solar Packages
-              </span>
-            </motion.button>
+              label="Get a FREE List of Our Solar Packages Now"
+            />
           </div>
         </section>
       </main>
