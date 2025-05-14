@@ -16,6 +16,7 @@ console.log("MODAL:", Modal);
 import { solarSetups } from "./constants";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import AnimatedButton from "@/components/AnimatedButton";
+import { sendFbEvent } from '@/utils/sendEvent';
 
 const fadeInAnimationVariantY = {
   initial: {
@@ -69,24 +70,20 @@ const Home = () => {
 
       console.log("Response:", response); // Log the entire response object
 
-      // if (!response.ok) {
-      //   const text = await response.getContentText(); // Get the response text
-      //   console.error("Fetch error:", response.status, text);
-      //   return;
-      // }
 
-      // const result = await response.json();
-      // console.log("Result:", result);
-
-      // if (!result.success) {
-      //   console.error("App Script error:", result.error);
-      //   return;
-      // }
-
+      //facebook pixel
       if (typeof window !== "undefined" && window.fbq) {
         window.fbq("track", "Lead");
       }
+      
+      //facebook CAPI OPENS
+      await sendFbEvent({
+        eventName: 'Lead',
+        name: name,
+        phone: phone,
+      });
 
+      //Google tag manager and analytics
       sendGTMEvent({ event: "buttonClicked", value: "form submitted" });
       sendGAEvent("event", "buttonClicked", { value: "form submitted" });
 
