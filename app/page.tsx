@@ -73,8 +73,11 @@ const Home = () => {
 
       //facebook pixel
       if (typeof window !== "undefined" && window.fbq) {
+        window.fbq('trackCustom', 'ButtonClick');
         window.fbq("track", "Lead");
       }
+
+      
       
       //facebook CAPI OPENS
       await sendFbEvent({
